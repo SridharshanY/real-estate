@@ -1,10 +1,7 @@
+import AppRouter from "./assets/AppRouter";
+
 const App = () => {
+  return <AppRouter />;
+};
 
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default App
+export default App;
