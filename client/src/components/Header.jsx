@@ -1,6 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import hamburger from "../svg/HAMBURG.svg";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [ham, setHam] = useState(false);
@@ -21,9 +22,15 @@ const Header = () => {
           <FaSearch className="text-slate-600" />
         </form>
         <ul className="sm:flex sm:gap-4 hidden">
-          <li>Home</li>
-          <li>About</li>
-          <li>Sign In</li>
+          <li className="hover:underline">
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li className="hover:underline">
+            <NavLink to="/about">About</NavLink>
+          </li>
+          <li className="hover:underline">
+            <NavLink to="/signIn">Sign In</NavLink>
+          </li>
         </ul>
         <button
           onClick={() => setHam(!ham)}
@@ -34,10 +41,22 @@ const Header = () => {
           <img src={hamburger} className="w-8" />
         </button>
       </div>
-      <ul className={ham ? `sm:hidden flex flex-col gap-2 p-4 tranition-all duration-300 border border-y-black`: `max-h-0 opacity-0 tranition-all duration-75`}>
-        <li>Home</li>
-        <li>About</li>
-        <li>Sign In</li>
+      <ul
+        className={
+          ham
+            ? `sm:hidden flex flex-col gap-2 p-4 tranition-all duration-300 border border-y-black`
+            : `max-h-0 opacity-0 tranition-all duration-75`
+        }
+      >
+        <li className="hover:underline">
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li className="hover:underline">
+          <NavLink to="/about">About</NavLink>
+        </li>
+        <li className="hover:underline">
+          <NavLink to="/signIn">Sign In</NavLink>
+        </li>
       </ul>
     </header>
   );

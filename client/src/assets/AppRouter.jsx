@@ -10,29 +10,53 @@ const AppRouter = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: (
+        <>
+          <Header />
+          <Home />
+        </>
+      ),
     },
     {
       path: "/about",
-      element: <About />,
+      element: (
+        <>
+          <Header />
+          <About />
+        </>
+      ),
     },
     {
       path: "/signIn",
-      element: <SignIn />,
+      element: (
+        <>
+          <Header />
+          <SignIn />
+        </>
+      ),
     },
     {
       path: "/signUp",
-      element: <SignUp />,
+      element: (
+        <>
+          <Header />
+          <SignUp />
+        </>
+      ),
     },
     {
       path: "/profile",
-      element: <Profile />,
+      element: (
+        <>
+          <Header />
+          <Profile />
+        </>
+      ),
     },
   ]);
 
   return (
     <>
-      <Header />
       <RouterProvider router={router} />
     </>
   );
