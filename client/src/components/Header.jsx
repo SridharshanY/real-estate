@@ -10,8 +10,10 @@ const Header = () => {
     <header className="bg-slate-200 shadow-md">
       <div className="flex flex-row justify-between items-center max-w-6xl mx-auto p-3">
         <h1 className="sm:text-2xl text-sm flex flex-wrap">
-          <span className="text-slate-500">Estate</span>
-          <span className="text-slate-700">Emporium</span>
+          <NavLink to="/">
+            <span className="text-slate-500">Estate</span>
+            <span className="text-slate-700">Emporium</span>
+          </NavLink>
         </h1>
         <form className="bg-slate-100 p-3 rounded-lg flex items-center">
           <input
