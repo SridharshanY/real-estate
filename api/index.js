@@ -1,10 +1,22 @@
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-mongoose.connect("mongodb+srv://sridharshany2001:paOrwZsRbj1IDD4r@cluster0.so3oq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+dotenv.config();
 
-const app = express()
+const dbUrl = process.env.DB_URL;
 
-app.listen(3000, ()=>{
-    console.log('Server running on port 3000')
-})
+mongoose
+  .connect(dbUrl)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+const app = express();
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
