@@ -1,5 +1,4 @@
 import axios from "axios"
-import { set } from "mongoose"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -21,14 +20,18 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    const res = await axios.post('/api/auth/signUp', formData)
-    const data = await res.data
-    if(data.success === false) {
-      setError(data.message)
-      setLoading(false)
-      return
+    try{
+      await axios.post('/api/auth/signUp', formData)
+      alert('User created successfully')
+      navigate('/signIn')
     }
-    setLoading(false)
+    catch(err){
+      setError(err.message)
+      console.log(error)
+    }
+    finally{
+      setLoading(false)
+    }
 }
 
   console.log(formData)
